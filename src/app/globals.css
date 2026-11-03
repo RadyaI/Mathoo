@@ -1,26 +1,142 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-fredoka);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-fredoka), system-ui, sans-serif;
+  color: #1e3a8a;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+/* Latar pemandangan */
+.scene {
+  position: relative;
+  min-height: 100dvh;
+  overflow: hidden;
+  background: linear-gradient(180deg, #38b6ff 0%, #7dd3fc 50%, #e0f7ff 100%);
+}
+
+/* Awan */
+.awan {
+  position: absolute;
+  width: 90px;
+  height: 34px;
+  background: #fff;
+  border-radius: 999px;
+}
+.awan::before,
+.awan::after {
+  content: "";
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+}
+.awan::before {
+  width: 44px;
+  height: 44px;
+  top: -22px;
+  left: 14px;
+}
+.awan::after {
+  width: 56px;
+  height: 56px;
+  top: -30px;
+  left: 38px;
+}
+
+/* Matahari */
+.matahari {
+  position: absolute;
+  top: 28px;
+  right: 24px;
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  background: #ffe066;
+  box-shadow: 0 0 0 14px rgba(255, 224, 102, 0.45),
+    0 0 0 30px rgba(255, 224, 102, 0.22);
+}
+
+/* Logo ala game */
+.logo {
+  font-size: 4.75rem;
+  line-height: 1;
+  font-weight: 700;
+  color: #ffd23f;
+  -webkit-text-stroke: 10px #1e3a8a;
+  paint-order: stroke fill;
+  text-shadow: 0 7px 0 #1e3a8a;
+  letter-spacing: 1px;
+}
+
+/* Pill tagline */
+.pill {
+  background: rgba(255, 255, 255, 0.92);
+  color: #1e3a8a;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 0.5rem 1.25rem;
+  box-shadow: 0 4px 0 rgba(30, 58, 138, 0.25);
+}
+
+/* Tombol 3D */
+.btn-game {
+  display: block;
+  border: none;
+  border-radius: 1.1rem;
+  padding: 1rem 1.5rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: transform 0.08s, box-shadow 0.08s;
+}
+.btn-game:active {
+  transform: translateY(6px);
+}
+.btn-play {
+  background: #ff9f1c;
+  box-shadow: 0 7px 0 #c2410c;
+}
+.btn-play:active {
+  box-shadow: 0 1px 0 #c2410c;
+}
+.btn-green {
+  background: #58cc02;
+  box-shadow: 0 7px 0 #3f9602;
+}
+.btn-green:active {
+  box-shadow: 0 1px 0 #3f9602;
+}
+.btn-blue {
+  background: #1cb0f6;
+  box-shadow: 0 7px 0 #1081b8;
+}
+.btn-blue:active {
+  box-shadow: 0 1px 0 #1081b8;
+}
+.btn-white {
+  background: #fff;
+  color: #1e3a8a;
+  box-shadow: 0 7px 0 #b6c6e3;
+}
+.btn-white:active {
+  box-shadow: 0 1px 0 #b6c6e3;
+}
+
+/* Panel putih (dipakai di layar lain) */
+.panel {
+  background: #fff;
+  border-radius: 1.5rem;
+  padding: 1.25rem;
+  box-shadow: 0 7px 0 rgba(30, 58, 138, 0.2);
+}
+
+button {
+  cursor: pointer;
 }
